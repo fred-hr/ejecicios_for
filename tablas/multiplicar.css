@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #071426, #102b4e, #123c69);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-principal {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.panel {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(10, 25, 47, 0.95);
+    border: 1px solid #28c7fa;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(40, 199, 250, 0.25);
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.etiqueta {
+    color: #28c7fa;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.encabezado h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.encabezado p {
+    color: #a9bed3;
+}
+
+.btn-probar {
+    display: block;
+    width: 180px;
+    margin: 0 auto 25px;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #28c7fa;
+    color: #071426;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-probar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(40, 199, 250, 0.7);
+}
+
+.tabla {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: #112e4f;
+    border-left: 4px solid #28c7fa;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.fila:hover {
+    transform: translateX(5px);
+    background: #173d67;
+}
+
+.fila span {
+    font-size: 17px;
+}
+
+.fila strong {
+    color: #28c7fa;
+    font-size: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 18px;
+    color: #8aa9c4;
+    font-size: 14px;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    .panel {
+        max-width: 550px;
+        padding: 25px;
+    }
+
+    .encabezado h1 {
+        font-size: 28px;
+    }
+}
+
+/* CELULAR */
+@media (max-width: 480px) {
+    .contenedor-principal {
+        padding: 20px 12px;
+    }
+
+    .panel {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .encabezado h1 {
+        font-size: 24px;
+    }
+
+    .btn-probar {
+        width: 100%;
+    }
+
+    .fila {
+        padding: 12px 15px;
+    }
+
+    .fila span {
+        font-size: 15px;
+    }
+
+    .fila strong {
+        font-size: 18px;
+    }
+}
