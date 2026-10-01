@@ -18,10 +18,17 @@
                 <p class="etiqueta">SISTEMA DE APRENDIZAJE</p>
                 <h1>Tabla de Multiplicar</h1>
                 <p>Practica de forma rápida y sencilla</p>
+                <p class="instruccion">
+                    Ingresa un número positivo y presiona PROBAR para generar su tabla.
+                </p>
             </div>
+
             <div class="entrada">
-                <input type="number" id="txtNumero" placeholder="Ingresa un número">
+                <input type="number" id="txtNumero" placeholder="Ejemplo: 8">
             </div>
+
+            <p id="mensaje" class="mensaje"></p>
+
             <button class="btn-probar" onclick="generarTablas()">PROBAR</button>
             <!-- CONTENEDOR -->
             <div class="tabla" id="tablaMultiplicar">
