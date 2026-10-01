@@ -7,10 +7,27 @@
 body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #071426, #102b4e, #123c69);
+    background:
+        radial-gradient(circle at top left, rgba(0, 255, 255, 0.18), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(0, 140, 255, 0.18), transparent 25%),
+        linear-gradient(135deg, #020b16, #071a2f, #0b2745);
     color: white;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* CAPA DECORATIVA */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 35px 35px;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .contenedor-principal {
@@ -19,179 +36,319 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .panel {
+    position: relative;
     width: 100%;
-    max-width: 650px;
-    background: rgba(10, 25, 47, 0.95);
-    border: 1px solid #28c7fa;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 0 30px rgba(40, 199, 250, 0.25);
+    max-width: 760px;
+    background: rgba(6, 20, 38, 0.88);
+    border: 1px solid rgba(48, 220, 255, 0.6);
+    border-radius: 28px;
+    padding: 35px 30px;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 0 18px rgba(0, 225, 255, 0.25),
+        0 0 40px rgba(0, 132, 255, 0.18),
+        inset 0 0 20px rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+}
+
+.panel::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(0,255,255,0.28), transparent 70%);
+    pointer-events: none;
+}
+
+.panel::after {
+    content: "";
+    position: absolute;
+    bottom: -70px;
+    left: -70px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(0,140,255,0.20), transparent 70%);
+    pointer-events: none;
 }
 
 .encabezado {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
 }
 
 .etiqueta {
-    color: #28c7fa;
-    font-size: 12px;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
+    color: #61eaff;
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(97, 234, 255, 0.45);
 }
 
 .encabezado h1 {
-    font-size: 32px;
-    margin-bottom: 8px;
+    font-size: 56px;
+    line-height: 1.05;
+    margin-bottom: 14px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffffff, #7ee8ff, #38c4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 18px rgba(56, 196, 255, 0.08);
 }
 
 .encabezado p {
-    color: #a9bed3;
+    color: #c3d6e8;
+    font-size: 20px;
 }
 
+.instruccion {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #8bb9dd;
+    line-height: 1.5;
+}
+
+/* INPUT */
+.entrada {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 10px;
+}
+
+.entrada input {
+    width: 330px;
+    max-width: 100%;
+    padding: 16px 20px;
+    border-radius: 30px;
+    border: 1.5px solid #39d9ff;
+    outline: none;
+    background: rgba(17, 46, 79, 0.95);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow:
+        0 0 0 2px rgba(57, 217, 255, 0.08),
+        inset 0 0 10px rgba(255,255,255,0.02);
+    transition: 0.3s ease;
+}
+
+.entrada input::placeholder {
+    color: #7d9fbd;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.entrada input:focus {
+    transform: scale(1.02);
+    box-shadow:
+        0 0 14px rgba(57, 217, 255, 0.55),
+        0 0 35px rgba(0, 162, 255, 0.22);
+}
+
+/* MENSAJE */
+.mensaje {
+    text-align: center;
+    min-height: 22px;
+    margin-bottom: 10px;
+    color: #64f0ff;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(100, 240, 255, 0.35);
+}
+
+/* BOTÓN */
 .btn-probar {
     display: block;
-    width: 180px;
-    margin: 0 auto 25px;
-    padding: 12px;
+    width: 280px;
+    max-width: 100%;
+    margin: 10px auto 28px;
+    padding: 16px 22px;
     border: none;
-    border-radius: 25px;
-    background: #28c7fa;
-    color: #071426;
-    font-size: 16px;
-    font-weight: bold;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #16c7ff, #3bbdff, #00e5ff);
+    color: #041423;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow:
+        0 0 18px rgba(34, 211, 255, 0.45),
+        0 8px 20px rgba(0,0,0,0.25);
+    transition: 0.3s ease;
 }
 
 .btn-probar:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(40, 199, 250, 0.7);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow:
+        0 0 22px rgba(34, 211, 255, 0.8),
+        0 0 40px rgba(34, 211, 255, 0.35);
 }
 
+.btn-probar:active {
+    transform: scale(0.98);
+}
+
+/* TABLA */
 .tabla {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
 }
 
 .fila {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 20px;
-    background: #112e4f;
-    border-left: 4px solid #28c7fa;
-    border-radius: 8px;
-    transition: 0.2s;
+    padding: 18px 24px;
+    border-radius: 18px;
+    background: linear-gradient(90deg, rgba(17,46,79,0.98), rgba(21,58,97,0.96));
+    border: 1px solid rgba(56, 196, 255, 0.15);
+    border-left: 6px solid #38c4ff;
+    box-shadow:
+        inset 0 0 10px rgba(255,255,255,0.02),
+        0 6px 16px rgba(0,0,0,0.18);
+    transition: 0.25s ease;
 }
 
 .fila:hover {
-    transform: translateX(5px);
-    background: #173d67;
+    transform: translateY(-2px) scale(1.01);
+    border-left-color: #6bf2ff;
+    box-shadow:
+        0 0 18px rgba(56, 196, 255, 0.18),
+        0 8px 18px rgba(0,0,0,0.25);
 }
 
 .fila span {
-    font-size: 17px;
+    font-size: 34px;
+    font-weight: 600;
+    color: #ffffff;
 }
 
 .fila strong {
-    color: #28c7fa;
-    font-size: 20px;
+    color: #2ed3ff;
+    font-size: 40px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(46, 211, 255, 0.28);
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     padding: 18px;
-    color: #8aa9c4;
+    color: #89a8c4;
     font-size: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.icono {
+    margin-right: 6px;
+}
+
+.icono-titulo {
+    color: #2ed3ff;
+    font-size: 40px;
+    margin-right: 8px;
+    text-shadow: 0 0 15px rgba(46, 211, 255, 0.8);
+}
+
+.btn-probar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 /* TABLET */
 @media (max-width: 768px) {
     .panel {
-        max-width: 550px;
-        padding: 25px;
+        max-width: 95%;
+        padding: 28px 22px;
     }
 
     .encabezado h1 {
-        font-size: 28px;
+        font-size: 42px;
     }
-}
 
-.entrada {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
+    .encabezado p {
+        font-size: 18px;
+    }
 
-.entrada input {
-    width: 220px;
-    padding: 12px 18px;
-    border: 1px solid #28c7fa;
-    border-radius: 25px;
-    outline: none;
-    background: #112e4f;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    transition: 0.3s;
-}
+    .fila span {
+        font-size: 26px;
+    }
 
-.entrada input::placeholder {
-    color: #8aa9c4;
-}
+    .fila strong {
+        font-size: 30px;
+    }
 
-.entrada input:focus {
-    box-shadow: 0 0 15px rgba(40, 199, 250, 0.6);
-}
-
-.instruccion {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #8aa9c4;
-}
-
-.mensaje {
-    text-align: center;
-    min-height: 20px;
-    margin-bottom: 10px;
-    color: #28c7fa;
-    font-size: 14px;
-    font-weight: bold;
+    .entrada input {
+        font-size: 24px;
+    }
 }
 
 /* CELULAR */
 @media (max-width: 480px) {
     .contenedor-principal {
-        padding: 20px 12px;
+        padding: 16px 10px;
     }
 
     .panel {
-        padding: 20px 15px;
-        border-radius: 15px;
+        padding: 22px 14px;
+        border-radius: 20px;
+    }
+
+    .etiqueta {
+        font-size: 11px;
+        letter-spacing: 3px;
     }
 
     .encabezado h1 {
-        font-size: 24px;
+        font-size: 34px;
+    }
+
+    .encabezado p {
+        font-size: 16px;
+    }
+
+    .instruccion {
+        font-size: 14px;
+    }
+
+    .entrada input {
+        width: 100%;
+        font-size: 22px;
+        padding: 14px 16px;
     }
 
     .btn-probar {
         width: 100%;
+        font-size: 20px;
+        padding: 14px 18px;
     }
 
     .fila {
-        padding: 12px 15px;
+        padding: 15px 16px;
+        border-radius: 14px;
     }
 
     .fila span {
-        font-size: 15px;
+        font-size: 22px;
     }
 
     .fila strong {
-        font-size: 18px;
+        font-size: 26px;
     }
 }
