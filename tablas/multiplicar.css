@@ -122,6 +122,33 @@ footer {
     }
 }
 
+.entrada {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.entrada input {
+    width: 220px;
+    padding: 12px 18px;
+    border: 1px solid #28c7fa;
+    border-radius: 25px;
+    outline: none;
+    background: #112e4f;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.entrada input::placeholder {
+    color: #8aa9c4;
+}
+
+.entrada input:focus {
+    box-shadow: 0 0 15px rgba(40, 199, 250, 0.6);
+}
+
 /* CELULAR */
 @media (max-width: 480px) {
     .contenedor-principal {
